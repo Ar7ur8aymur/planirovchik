@@ -10,9 +10,55 @@ var my_obj = new THREE.Object3D();
 init();
 animate();
 
+function CrtWall() {
+// СЃРѕР·РґР°РЅРёРµ Рё РЅР°СЃС‚СЂРѕР№РєР° С‚РµРєСЃС‚СѓСЂС‹
+	var Texture = new THREE.ImageUtils.loadTexture( 'images/brick_25.jpg');
+	Texture.wrapS = Texture.wrapT = THREE.RepeatWrapping;
+	Texture.repeat.set( 2, 2);
+	var materialArray = [];
+	//materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( 'images/Dice-Blue-1.png' ) }));
+	//materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( 'images/Dice-Blue-6.png' ) }));
+	//materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( 'images/Dice-Blue-2.png' ) }));
+	//materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( 'images/Dice-Blue-5.png' ) }));
+	//materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( 'images/Dice-Blue-3.png' ) }));
+	//materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( 'images/Dice-Blue-4.png' ) }));
+	//var DiceBlueMaterial = new THREE.MeshFaceMaterial(materialArray);
+	
+    //Texture.offset.set(0.17,0);
+//
+    /* width вЂ” Width of the sides on the X axis.
+	height вЂ” Height of the sides on the Y axis.
+	depth вЂ” Depth of the sides on the Z axis. */
+	var wall1 = new THREE.Object3D();
+// СЃРѕР·РґР°РЅРёРµ box1	
+	var geometry = new THREE.BoxGeometry( 150, 200, 10 );
+	var material = new THREE.MeshBasicMaterial( { map: Texture, side: THREE.FrontSide } );
+	var box1 = new THREE.Mesh( geometry, material );
+	box1.position.set(0,100,0);
+// СЃРѕР·РґР°РЅРёРµ box1
+	var box2 = box1.clone();
+	box2.position.set(250,100,0);
+// СЃРѕР·РґР°РЅРёРµ box3
+var Texture = new THREE.ImageUtils.loadTexture( 'images/brick_25.jpg' );
+	Texture.wrapS = Texture.wrapT = THREE.RepeatWrapping;
+	Texture.repeat.set( 1.5, 0.5);
+//new THREE.MeshFaceMaterial( materials );
+	var geometry = new THREE.BoxGeometry( 100, 50, 10 );
+	var material = new THREE.MeshBasicMaterial( { map: Texture, side: THREE.FrontSide } );
+	var box3 = new THREE.Mesh( geometry, material );
+	box3.position.set(125,75+100,0);
+// СЃРѕР·РґР°РЅРёРµ box4
+	var box4 = box3.clone();
+	box4.position.set(125,25,0);
+// РґРѕР±Р°РІР»РµРЅРёРµ РѕР±СЉРµРєС‚РѕРІ РЅР° СЃС†РµРЅСѓ
+	scene.add(box1);
+	scene.add(box2);
+	scene.add(box3);
+	scene.add(box4);
+}
+
 // FUNCTIONS 		
-function init() 
-{
+function init() {
 	// SCENE
 	scene = new THREE.Scene();
 	// CAMERA
@@ -44,7 +90,7 @@ function init()
 	light.position.set(150,150,100);
 	scene.add(light);
 	var light = new THREE.PointLight(0xffffff);
-	light.position.set(0,450,-100);
+	light.position.set(500,500,-500);
 	scene.add(light);
 	
 	// FLOOR
@@ -70,118 +116,115 @@ function init()
 	// CUSTOM //
 	////////////
 
-	var starShape = new THREE.Shape();
-	starShape.moveTo(0, 0);
-	starShape.lineTo(150, 0);
-	starShape.lineTo(150, 200);
-	starShape.lineTo(100, 200);
-	starShape.lineTo(100, 100);
-	starShape.lineTo(0, 100);
-	//
-	var holePath = new THREE.Path();
-	holePath.moveTo(15, 15);
-	holePath.lineTo(15, 85);
-	holePath.lineTo(115, 85);
-	holePath.lineTo(115, 185);
-	holePath.lineTo(135, 185);
-	holePath.lineTo(135, 15);
-	//
-	starShape.holes.push( holePath );
-	//
-	var extrusionSettings = {
-		amount: 200, steps: 4, curveSegments: 1, bevelEnabled: false,
-		material: 0, extrudeMaterial: 1
+//===============================================\
+
+//С‚РµРєСЃС‚СѓСЂР° РѕР±РѕРµРІ
+var WallPaperTexture1 = new THREE.ImageUtils.loadTexture( 'images/wall_paper_1.jpg' );
+	WallPaperTexture1.wrapS = WallPaperTexture1.wrapT = THREE.RepeatWrapping; 
+	WallPaperTexture1.repeat.set( 0.01, 0.01);
+    //WallPaperTexture1.anisotropy = 16;
+	//WallPaperTexture1.offset.set(0.1,0.5);
+	
+var WallPaperTexture = new THREE.ImageUtils.loadTexture( 'images/wall_paper.jpg' );
+	WallPaperTexture.wrapS = WallPaperTexture.wrapT = THREE.RepeatWrapping; 
+	WallPaperTexture.repeat.set( 0.01, 0.01);
+	//WallPaperTexture.anisotropy = 16;
+	//WallPaperTexture.offset.set(0.17,0);
+	
+//С‚РµРєСЃС‚СѓСЂР° РєРёСЂРїРёС‡Р°	
+var BrickTexture = new THREE.ImageUtils.loadTexture( 'images/brick_25.jpg' );
+	BrickTexture.wrapS = BrickTexture.wrapT = THREE.RepeatWrapping;
+	BrickTexture.repeat.set( 0.01, 0.01 );
+	
+
+//РјР°С‚РµСЂРёР°Р»С‹	
+ materialFront = new THREE.MeshBasicMaterial( {map: WallPaperTexture, side: THREE.DoubleSide} );
+ materialSide = new THREE.MeshBasicMaterial( {map: BrickTexture,side: THREE.DoubleSide} );
+ materialBack = new THREE.MeshBasicMaterial( {map: BrickTexture,side: THREE.DoubleSide} );
+ materialSwp = new THREE.MeshBasicMaterial( {map: WallPaperTexture1,side: THREE.DoubleSide} );
+//РјР°СЃСЃРёРІ РјР°С‚РµСЂРёР°Р»РѕРІ
+ materials = [materialFront, materialSide, materialBack];
+
+/*===============================================
+var shape = new THREE.Shape();
+	shape.moveTo(0, 0);
+	shape.lineTo(0, 200);
+	shape.lineTo(500, 200);
+	shape.lineTo(500, 0);
+	
+	
+
+var windowHole = new THREE.Path(); 
+	windowHole.moveTo(75,50);
+	windowHole.lineTo(175,50);
+	windowHole.lineTo(175,150);
+	windowHole.lineTo(75,150);
+	shape.holes.push(windowHole);
+
+	windowHole1 = new THREE.Path();
+	windowHole1.moveTo(325,50);
+	windowHole1.lineTo(425,50);
+	windowHole1.lineTo(425,150);
+	windowHole1.lineTo(325,150);
+	shape.holes.push(windowHole1); 
+/*	
+var extrusionSettings = {
+			amount:  11,
+			steps			: 1,
+			bevelEnabled	: false,
+			material: 0, extrudeMaterial: 1
 	};
-	
-	var materialFront = new THREE.MeshBasicMaterial( { color: 0xffff00,  side: 2} );
-	var materialSide = new THREE.MeshBasicMaterial( { color: 0xff8800, side: 2 } );
-	var materialArray = [ materialFront, materialSide ];
-	var starMaterial = new THREE.MeshFaceMaterial(materialArray);
-	
-	var starGeometry = new THREE.ExtrudeGeometry( starShape, extrusionSettings );
-	var star = new THREE.Mesh( starGeometry, starMaterial );
-	my_obj.add(star);
-	var wireframeTexture = new THREE.MeshBasicMaterial( { color: 0x000000, wireframe: true, transparent: true } ); 
-	var star = new THREE.Mesh( starGeometry, wireframeTexture );
-	//star.position.set(0,50,0);
-	
-	my_obj.add(star);
-	//scene.add(star);
-	// add a wireframe to model
-	
-	
-// прямоугольник с отверстием
-var geometry = new THREE.Geometry(); 
-//задаем вершины парами
-geometry.vertices.push( new THREE.Vector3(0,0,0) ); //0/0
-geometry.vertices.push( new THREE.Vector3(25,0,25) ); //1/1
-//
-geometry.vertices.push( new THREE.Vector3(100,0,0) );//0'/2
-geometry.vertices.push( new THREE.Vector3(75,0,25) );//1'/3
-//
-geometry.vertices.push( new THREE.Vector3(100,0,100) );//0''/4
-geometry.vertices.push( new THREE.Vector3(75,0,75) );//1''/5
-//
-geometry.vertices.push( new THREE.Vector3(0,0,100) );//0'''/6
-geometry.vertices.push( new THREE.Vector3(25,0,75) );//1'''/7
 
-//образуем грани из заданных ранее вершин
-for (var i=0; i<8; i++) {
+
+var geometry = new THREE.ShapeGeometry( shape );
+var material = new THREE.MeshFaceMaterial( materials );
+
+obj1 = new THREE.Mesh( geometry, material );
+
+for ( var face in obj1.geometry.faces ) {
+if (obj1.geometry.faces[ face ].normal.z == 1) obj1.geometry.faces[ face ].materialIndex = 2;
+	var f = obj1.geometry.faces[ face ];
+	var arrow = new THREE.ArrowHelper( f.normal, obj1.geometry.vertices[f.a], 10);
+	obj1.add(arrow);
 }
+
+
+obj2 = obj1.clone();
+//obj2.material = obj1.material.clone();
+obj2.position.z += -500;
+obj2.position.x += 500;
+obj2.rotation.y = Math.PI;
+
+//obj1.position.x += 11;
+//obj2.position.z += 11;
+
+scene.add(obj1);
+scene.add(obj2);
 /*
-geometry.faces.push( new THREE.Face3( 0, 6, 1 ) );
-geometry.faces.push( new THREE.Face3( 6, 4, 7 ) );
+// СЃС‚РµРЅР° Р±РµР· РѕРєРѕРЅ
+var shape = new THREE.Shape();
+shape.moveTo(0, 0);
+shape.lineTo(500, 0);
+shape.lineTo(500, 200);
+shape.lineTo(0, 200);
 
-geometry.faces.push( new THREE.Face3( 4, 2, 5 ) );
-geometry.faces.push( new THREE.Face3( 2, 0, 3 ) );
+var geometry = new THREE.ExtrudeGeometry( shape, extrusionSettings );
+var material = new THREE.MeshFaceMaterial(materials);
+obj3 = new THREE.Mesh( geometry, material );
+/*
 
-geometry.faces.push( new THREE.Face3( 1, 6, 7 ) );
-geometry.faces.push( new THREE.Face3( 7, 4, 5 ) );
+for ( var face in obj3.geometry.faces ) {
+if (obj3.geometry.faces[ face ].normal.z == 1)
+	obj3.geometry.faces[ face ].materialIndex = 2;
+}
 
-geometry.faces.push( new THREE.Face3( 5, 2, 3 ) );
-geometry.faces.push( new THREE.Face3( 3, 0, 1 ) );
-*/
+//obj3.position.z += 500;
+obj3.position.x += 500;
+obj3.rotation.y = Math.PI / 2;
 
-geometry.faces.push( new THREE.Face3( 0, 6, 1 ) );
-geometry.faces.push( new THREE.Face3( 2, 0, 3 ) );
+scene.add(obj3);
 
-geometry.faces.push( new THREE.Face3( 4, 2, 5 ) );
-geometry.faces.push( new THREE.Face3( 6, 4, 7 ) );
-
-geometry.faces.push( new THREE.Face3( 1, 3, 0 ) );
-geometry.faces.push( new THREE.Face3( 3, 5, 2 ) );
-
-geometry.faces.push( new THREE.Face3( 5, 7, 4 ) );
-geometry.faces.push( new THREE.Face3( 7, 1, 6 ) );
-//наложение текстурных координат
-geometry.faceVertexUvs[0].push( [new THREE.Vector2(0,0), new THREE.Vector2(0,1), new THREE.Vector2(0.25,0.25)] );
-geometry.faceVertexUvs[0].push( [new THREE.Vector2(1,0), new THREE.Vector2(0,0), new THREE.Vector2(0.75,0.25)] );
-geometry.faceVertexUvs[0].push( [new THREE.Vector2(1,1), new THREE.Vector2(1,0), new THREE.Vector2(0.75,0.75)] );
-geometry.faceVertexUvs[0].push( [new THREE.Vector2(0,1), new THREE.Vector2(1,1), new THREE.Vector2(0.25,0.75)] );
-//
-geometry.faceVertexUvs[0].push( [new THREE.Vector2(0.75,0.25), new THREE.Vector2(0.25,0.25), new THREE.Vector2(0,0)] );
-geometry.faceVertexUvs[0].push( [new THREE.Vector2(0.75,0.25), new THREE.Vector2(0.75,0.75), new THREE.Vector2(1,0)] );
-geometry.faceVertexUvs[0].push( [new THREE.Vector2(0.75,0.75), new THREE.Vector2(0.25,0.75), new THREE.Vector2(1,1)] );
-geometry.faceVertexUvs[0].push( [new THREE.Vector2(0.25,0.75), new THREE.Vector2(0.25,0.25), new THREE.Vector2(0,1)] );
-//*/
-//geometry.computeFaceNormals();
-var gg1 = geometry.clone();
-
-var texture = new THREE.ImageUtils.loadTexture( 'images/brick_25.jpg' );
-texture.wrapS = texture.wrapT = THREE.RepeatWrapping; 
-texture.repeat.set( 1, 1 );
-//*/
-var material = new THREE.MeshBasicMaterial({color: 0x9fAA77, map: texture});
-var object = new THREE.Mesh( geometry, material );
-var oo1 = new THREE.Mesh( gg1, material );
-object.position.x -= 100;
-//object.rotation.x += Math.PI/2;
-oo1.position.x -= 100;
-oo1.position.y +=100;
-scene.add(object);
-scene.add(oo1);
-
-//===============================================
+//СЃС‚РµРЅР° СЃ РґРІРµСЂСЊСЋ Рё РѕРєРЅРѕРј
 var shape = new THREE.Shape();
 shape.moveTo(0, 0);
 shape.lineTo(500, 0);
@@ -197,113 +240,12 @@ windowHole.lineTo(75,150);
 //windowHole.lineTo(75,50);
 shape.holes.push(windowHole);
 
-windowHole1 = new THREE.Path();
-windowHole1.moveTo(325,50);
-windowHole1.lineTo(425,50);
-windowHole1.lineTo(425,150);
-windowHole1.lineTo(325,150);
-//windowHole1.lineTo(325,50);
-shape.holes.push(windowHole1); 
-
-var extrusionSettings = {
-		amount: 11, steps: 1, curveSegments: 0, bevelEnabled: false,
-		material: 0, extrudeMaterial: 1
-	};
-//текстура обоев
-var WallPaperTexture1 = new THREE.ImageUtils.loadTexture( 'images/wall_paper_1.jpg' );
-	WallPaperTexture1.wrapS = WallPaperTexture1.wrapT = THREE.RepeatWrapping; 
-	WallPaperTexture1.repeat.set( 0.01, 0.01);
-    WallPaperTexture1.anisotropy = 16;
-	//WallPaperTexture1.offset.set(0.1,0.5);
-	
-var WallPaperTexture = new THREE.ImageUtils.loadTexture( 'images/wall_paper.jpg' );
-	WallPaperTexture.wrapS = WallPaperTexture.wrapT = THREE.RepeatWrapping; 
-	WallPaperTexture.repeat.set( 0.01, 0.01);
-	WallPaperTexture.anisotropy = 16;
-	WallPaperTexture.offset.set(0.17,0);
-	
-//текстура кирпича	
-var BrickTexture = new THREE.ImageUtils.loadTexture( 'images/brick_25.jpg' );
-	BrickTexture.wrapS = BrickTexture.wrapT = THREE.RepeatWrapping;
-	BrickTexture.repeat.set( 0.01, 0.01 );
-	
-
-//материалы	
- materialFront = new THREE.MeshBasicMaterial( {map: WallPaperTexture} );
- materialSide = new THREE.MeshBasicMaterial( {map: BrickTexture} );
- materialBack = new THREE.MeshBasicMaterial( {map: BrickTexture} );
- materialSwp = new THREE.MeshBasicMaterial( {map: WallPaperTexture1} );
-//массив материалов
- materials = [materialFront, materialSide, materialBack];
-
-var geometry = new THREE.ExtrudeGeometry( shape, extrusionSettings );
-var material = new THREE.MeshFaceMaterial(materials);
-
-obj1 = new THREE.Mesh( geometry, material );
-
-for ( var face in obj1.geometry.faces ) {
-if (obj1.geometry.faces[ face ].normal.z == 1)
-	obj1.geometry.faces[ face ].materialIndex = 2;
-}
-
-obj2 = obj1.clone();
-//obj2.material = obj1.material.clone();
-obj2.position.z += -500;
-obj2.position.x += 500;
-obj2.rotation.y = Math.PI;
-
-obj1.position.x += 11;
-obj2.position.z += 11;
-	
-scene.add(obj1);
-scene.add(obj2);
-
-// стена без окон
-var shape = new THREE.Shape();
-shape.moveTo(0, 0);
-shape.lineTo(500, 0);
-shape.lineTo(500, 200);
-shape.lineTo(0, 200);
-shape.lineTo(0, 0);
-
-var geometry = new THREE.ExtrudeGeometry( shape, extrusionSettings );
-var material = new THREE.MeshFaceMaterial(materials);
-obj3 = new THREE.Mesh( geometry, material );
-
-
-for ( var face in obj3.geometry.faces ) {
-if (obj3.geometry.faces[ face ].normal.z == 1)
-	obj3.geometry.faces[ face ].materialIndex = 2;
-}
-
-//obj3.position.z += 500;
-obj3.position.x += 500;
-obj3.rotation.y = Math.PI / 2;
-
-scene.add(obj3);
-
-//стена с дверью и окном
-var shape = new THREE.Shape();
-shape.moveTo(0, 0);
-shape.lineTo(500, 0);
-shape.lineTo(500, 200);
-shape.lineTo(0, 200);
-shape.lineTo(0, 0);
-
-var windowHole = new THREE.Path(); 
-windowHole.moveTo(75,50);
-windowHole.lineTo(175,50);
-windowHole.lineTo(175,150);
-windowHole.lineTo(75,150);
-windowHole.lineTo(75,50);
-shape.holes.push(windowHole);
-
 var doorHole = new THREE.Path(); 
 doorHole.moveTo(325,0);
 doorHole.lineTo(425,0);
 doorHole.lineTo(425,150);
 doorHole.lineTo(325,150);
-doorHole.lineTo(325,0);
+//doorHole.lineTo(325,0);
 shape.holes.push(doorHole);
 
 var geometry = new THREE.ExtrudeGeometry( shape, extrusionSettings );
@@ -322,8 +264,60 @@ obj4.position.z+=11;
 obj4.position.x+=11;
 
 scene.add(obj4);
-
+*/
 scene.add(my_obj);
+/*
+	var loader = new THREE.ColladaLoader();
+	loader.options.convertUpAxis = true;
+	loader.load(
+	// resource URL
+	'untitled.dae',
+	// Function when resource is loaded
+	function ( collada ) {
+		var dae = collada.scene;
+		
+		
+		var setMaterial =  function ( node, material )  { 
+			node.material = material ; 
+			if  ( node.children )  { 
+				for  ( var i = 0; i < node.children.length; i++)  { 
+					setMaterial ( node.children[i], material ); 
+				} 
+			} 
+		}
+		setMaterial( dae, new THREE.MeshBasicMaterial({color: 0xff0000}) )
+		dae.position.set(0,50,0)
+		dae.scale.set(50,50,50);
+		dae.updateMatrix();
+		scene.add( dae );
+	},
+	// Function called when download progresses
+	function ( xhr ) {
+		console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+	}
+);
+*/
+var loader = new THREE.JSONLoader();
+
+	loader.load( 
+
+	'my_plane.json',
+
+	function ( geometry, materials ) {
+		var material = new THREE.MeshFaceMaterial(materials);
+		var object = new THREE.Mesh( geometry, material );
+		object.scale.set(100,100,100);
+		object.position.set(0,-200,0);
+		scene.add( object );
+	},
+	'images/');
+	//var material2 = new THREE.MeshLambertMaterial( { color: 0xff8000, wireframe: false } );
+
+	//var mesh = new THREE.Mesh( geometry, material2 );
+
+	//scene.add( mesh );
+	
+	//CrtWall();
 }
 
 var FizzyText = function() {
@@ -331,7 +325,7 @@ var FizzyText = function() {
   //this.speed = 0.8;
   //this.displayOutline = false;
   this.wallpaper = function() {
-					// меняем обои
+					// РјРµРЅСЏРµРј РѕР±РѕРё
 					obj1.material.materials[0] = materialSwp;
 					//obj2.material.materials[0] = materialSwp;
 					//obj3.material.materials[0] = materialSwp; 
