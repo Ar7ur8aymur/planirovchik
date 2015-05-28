@@ -5,13 +5,105 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 	<link rel=stylesheet href=""/>
+<style type="text/css">
+	
+#ThreeJS {
+	position: absolute;
+	left:0px;
+	top:0px
+}
+				 
+ul, li {
+    margin:0;
+    padding:0;
+    list-style-type:none;   
+}
+/*чтобы убрать отступ под картинками ;-)*/
+img { 
+	display:block;
+	margin-left: 20px;
+	margin-right: 20px;
+	
+}
+/*Задаём параметры блока, содержащего основное меню*/
+#menu {
+	display:block;
+	position: fixed; 
+  	left: 0px; 
+ 	top: 0px;
+	/*width: 300px;
+	background-color: lightblue;*/
+}
+ 
+/*Задаём стили для разделов нашего меню*/
+#menu > li {
+    display:block;
+
+	/*border: 1px solid darkgray;
+	border-top-style: none;*/
+}
+
+#menu > li > ul > li {
+   border: 1px solid darkgray;
+   border-bottom-style: none;
+}
+/* стили для слайдера*/
+
+	.slider {
+		
+		width: 294px;
+		margin-left: 3px;
+		margin-right: 3px;
+		overflow: hidden;
+		position: relative;
+		display: none; /*изначально всё скрыто*/
+		border-left: 1px solid darkgray;
+		border-right: 1px solid darkgray;
+		background-color: lightgray;
+	}
+
+	.slider ul {
+		width: 9999px;
+	}
+	.slider ul li {
+		list-style-type: none;
+		float: left;
+		width: 300px;
+		/*height: 250px;*/
+	}
+	
+	.punct {
+		width: 300px;
+		height: 30px;
+		border: 1px solid darkgray;
+		background-color: lightgray;
+		
+	}
+	
+	.nextbtn {
+		display: block;
+		width: 98px;
+		float: left;
+		border: none;
+	}
+	.prevbtn {
+		display: block;
+		width: 98px;
+		float: left;
+		border: none;
+	}
+	.okbtn {
+		display: block;
+		width: 98px;
+		border: none;
+	}
+</style>
 </head>
 <body>
 
 <script src="Three.js"></script>
 <script src="jquery-2.1.1.min.js"></script>
 
-<script src="ColladaLoader.js"></script>
 <script src="JSONLoader.js"></script>
 
 <script src="Detector.js"></script>
@@ -19,11 +111,103 @@
 <script src="THREEx.FullScreen.js"></script>
 <script src="THREEx.WindowResize.js"></script>
 <!-- ------------------------------------------------------------ -->
-<script type="text/javascript" src="dat.gui.js"></script>
 
 <script src="TrackballControls.js"></script>
 
-<div id="ThreeJS" style="position: absolute; left:0px; top:0px"></div>
+<div id="ThreeJS" ></div>
+<ul id="menu">
+	<li><div class="punct">Прихожая</div>
+		<div class="slider">
+			<ul id="hallway">
+				<li><img width="250" height="250" src="images/45010-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45010-10.jpg"></li>
+				<li><img width="250" height="250" src="images/45013-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45016-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45017-10.jpg"></li>
+				<li><img width="250" height="250" src="images/45017-20.jpg"></li>
+			</ul>
+			<input class="prevbtn" type="button" value="Назад">
+			<input class="nextbtn" type="button" value="Вперед">
+			<input class="okbtn" type="button" value="Принять">
+		</div>
+	</li>
+	<li><div class="punct">Гостиная</div>
+		<div class="slider">
+			<ul id="living-room">
+				<li><img width="250" height="250" src="images/45010-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45010-10.jpg"></li>
+				<li><img width="250" height="250" src="images/45013-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45016-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45017-10.jpg"></li>
+				<li><img width="250" height="250" src="images/45017-20.jpg"></li>
+			</ul>
+			<input class="prevbtn" type="button" value="Назад">
+			<input class="nextbtn" type="button" value="Вперед">
+			<input class="okbtn" type="button" value="Принять">
+		</div>
+	</li>
+	<li><div class="punct">Кухня</div>
+		<div class="slider">
+			<ul id="kitchen">
+				<li><img width="250" height="250" src="images/45010-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45010-10.jpg"></li>
+				<li><img width="250" height="250" src="images/45013-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45016-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45017-10.jpg"></li>
+				<li><img width="250" height="250" src="images/45017-20.jpg"></li>
+			</ul>
+			<input class="prevbtn" type="button" value="Назад">
+			<input class="nextbtn" type="button" value="Вперед">
+			<input class="okbtn" type="button" value="Принять">
+		</div>
+	</li>
+	<li><div class="punct">Спальня 1</div>
+		<div class="slider">
+			<ul id="bedroom-1">
+				<li><img width="250" height="250" src="images/45010-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45010-10.jpg"></li>
+				<li><img width="250" height="250" src="images/45013-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45016-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45017-10.jpg"></li>
+				<li><img width="250" height="250" src="images/45017-20.jpg"></li>
+			</ul>
+			<input class="prevbtn" type="button" value="Назад">
+			<input class="nextbtn" type="button" value="Вперед">
+			<input class="okbtn" type="button" value="Принять">
+		</div>
+	</li>
+	<li><div class="punct">Спальня 2</div>
+		<div class="slider">
+			<ul id="bedroom-2">
+				<li><img width="250" height="250" src="images/45010-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45010-10.jpg"></li>
+				<li><img width="250" height="250" src="images/45013-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45016-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45017-10.jpg"></li>
+				<li><img width="250" height="250" src="images/45017-20.jpg"></li>
+			</ul>
+			<input class="prevbtn" type="button" value="Назад">
+			<input class="nextbtn" type="button" value="Вперед">
+			<input class="okbtn" type="button" value="Принять">
+		</div>
+	</li>
+	<li><div class="punct">Ванная</div>
+		<div class="slider">
+			<ul id="bathroom">
+				<li><img width="250" height="250" src="images/45010-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45010-10.jpg"></li>
+				<li><img width="250" height="250" src="images/45013-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45016-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45017-10.jpg"></li>
+				<li><img width="250" height="250" src="images/45017-20.jpg"></li>
+			</ul>
+			<input class="prevbtn" type="button" value="Назад">
+			<input class="nextbtn" type="button" value="Вперед">
+			<input class="okbtn" type="button" value="Принять">
+		</div>
+	</li>
+</ul>
+	
 <script src="project.js"></script>
 
 </body>
