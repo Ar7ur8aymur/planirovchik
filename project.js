@@ -27,15 +27,13 @@ animate();
 		var index = $(sl).find("li.on").index();
 		
 	    $(li_array).eq(index).removeClass("on");
-		index++;
-		index = index % size;
+		index--;
+		if (index < 0) 
+		{
+			index += size;
+		} 
 		$(li_array).eq(index).addClass("on");
 		
-		if (index == 0) {
-			//$(s1).find(".prevbtn").prop("disabled", true);
-		} else if (index == (size-1)) {
-			//$(ts1).find(".nextbtn").prop("disabled", true);
-		}
 		$(ul).animate({marginLeft: "-"+$(li_array).eq(index).width()*index}, 500);
 		
 	});
@@ -43,7 +41,20 @@ animate();
 	$("#menu").on("click", ".nextbtn", function()
 	{
 		var sl = $(this).closest(".slider");
-		console.log("nextbtn");
+		var ul = $(sl).find("ul");
+		var li_array = $(ul).children("li");
+		var size = li_array.size();
+		var index = $(sl).find("li.on").index();
+		
+	    $(li_array).eq(index).removeClass("on");
+		index++;
+		if (index > (size-1)) 
+		{
+			index -= size;
+		} 
+		$(li_array).eq(index).addClass("on");
+		
+		$(ul).animate({marginLeft: "-"+$(li_array).eq(index).width()*index}, 500);
 	});
 	
 	$("#menu").on("click", ".okbtn", function()
@@ -55,7 +66,7 @@ animate();
 		var Texture = new THREE.ImageUtils.loadTexture( my_img );
 	    Texture.wrapS = Texture.wrapT = THREE.RepeatWrapping; 
 		Texture.repeat.set( 1, 1);
-		var material = new THREE.MeshBasicMaterial( { map: Texture } );
+		var material = new THREE.MeshBasicMaterial( { map: Texture, color: 0xcfcfcf } );
 		var i = get_index_by_room($(ul).attr("id"));
 		my_object.material.materials[i] = material;
 		//
@@ -79,12 +90,11 @@ animate();
 function get_index_by_room(room) {
 	//
 	switch (room) {
-		case "kitchen": return 3;
-		case "bathroom": return 4;
+		case "kitchen": return 8;
 		case "bedroom-1": return 5;
 		case "bedroom-2": return 6;
 		case "living-room": return 3;
-		case "hallway": return 4;
+		case "hallway": return 2;
 		default: return 0;
 	}
 	//
@@ -118,25 +128,7 @@ function init() {
 	THREEx.FullScreen.bindKey({ charCode : 'm'.charCodeAt(0) });
 	// CONTROLS
 	controls = new THREE.OrbitControls( camera, renderer.domElement );
-	// STATS
 	
-	// LIGHT
-	//var light = new THREE.PointLight(0xffffff,2,700);
-	//light.position.set(285,325,-35);
-	//scene.add(light);
-	
-	//var light = new THREE.PointLight(0xffffff,2,1000);
-	//light.position.set(250,250,100);
-	//scene.add(light);
-	//
-	//var sphereGeometry = new THREE.SphereGeometry( 10, 16, 8 );
-	//var darkMaterial = new THREE.MeshBasicMaterial( { color: 0x000000 } );
-		
-	//var wireframeMaterial = new THREE.MeshBasicMaterial( { color: 0xffff00, wireframe: true, transparent: true } ); 
-	//var shape = THREE.SceneUtils.createMultiMaterialObject( sphereGeometry, [ darkMaterial, wireframeMaterial ] );
-	//shape.position.set(light.position.x,light.position.y,light.position.z);
-	//scene.add( shape );
-	//
 	
 	// FLOOR
 	var floorTexture = new THREE.ImageUtils.loadTexture( 'images/grass.jpg' );
@@ -162,13 +154,6 @@ function init() {
 	////////////
 
 //===============================================\
-
-var Textures = [];
-	
-//текстура кирпича	
-var BrickTexture = new THREE.ImageUtils.loadTexture( 'images/brick_25.jpg' );
-	BrickTexture.wrapS = BrickTexture.wrapT = THREE.RepeatWrapping;
-	BrickTexture.repeat.set( 1, 1 );
 
 var loader = new THREE.JSONLoader();
 
