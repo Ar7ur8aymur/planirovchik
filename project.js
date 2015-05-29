@@ -207,7 +207,7 @@ var loader = new THREE.JSONLoader();
 		obj1.position.set(0,-200,302);
 		//
 		obj2.rotation.y = Math.PI * 0.5;
-		obj2.position.set(548,-200,-273);
+		obj2.position.set(547,-200,-273);
 		//
 		obj3.position.set(950,-200,150);
 		//
@@ -253,9 +253,9 @@ var loader = new THREE.JSONLoader();
 		var obj2 = object.clone();
 		//
 		object.position.set(0,-202,0);
-		obj1.position.set(0,-202,-125);
+		obj1.position.set(0,-202,-130);
 		//
-		obj2.position.set(50,-202,-325);
+		obj2.position.set(35,-202,-325);
 		obj2.rotation.y = Math.PI * 0.5;
 		//
 		scene.add( object );

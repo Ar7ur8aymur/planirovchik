@@ -28,7 +28,7 @@
         "DbgIndex": 0,
         "colorEmissive": [0,0,0],
         "colorSpecular": [0.5,0.5,0.5],
-        "colorDiffuse": [0.64,0.64,0.64]
+        "colorDiffuse": [0.8,0.8,0.8]
     },{
         "DbgName": "Material.014",
         "mapDiffuseWrap": ["RepeatWrapping","RepeatWrapping"],
@@ -49,7 +49,7 @@
         "colorEmissive": [0,0,0],
         "colorSpecular": [0.5,0.5,0.5],
         "mapDiffuseAnisotropy": 1,
-        "colorDiffuse": [0.64,0.64,0.64]
+        "colorDiffuse": [0.8,0.8,0.8]
     }],
     "uvs": [[9.1e-05,0.999909,9.1e-05,9.1e-05,0.988508,9.1e-05,0.988507,0.999909,-0.0044,0.999937,0.995049,0.999937,0.995048,6.3e-05,-0.0044,6.3e-05,0,0]],
     "name": "Plane.005Geometry"

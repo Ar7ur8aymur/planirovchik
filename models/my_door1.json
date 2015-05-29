@@ -32,7 +32,7 @@
         "colorEmissive": [0,0,0],
         "colorSpecular": [0.5,0.5,0.5],
         "mapDiffuseAnisotropy": 1,
-        "colorDiffuse": [0.64,0.64,0.64]
+        "colorDiffuse": [0.8,0.8,0.8]
     },{
         "DbgName": "Material.011",
         "mapDiffuseWrap": ["RepeatWrapping","RepeatWrapping"],
