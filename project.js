@@ -66,7 +66,7 @@ animate();
 		var Texture = new THREE.ImageUtils.loadTexture( my_img );
 	    Texture.wrapS = Texture.wrapT = THREE.RepeatWrapping; 
 		Texture.repeat.set( 1, 1);
-		var material = new THREE.MeshBasicMaterial( { map: Texture, color: 0xcfcfcf } );
+		var material = new THREE.MeshBasicMaterial( { map: Texture, color: 0xd2d2d2 } );
 		var i = get_index_by_room($(ul).attr("id"));
 		my_object.material.materials[i] = material;
 		//
@@ -100,6 +100,32 @@ function get_index_by_room(room) {
 	//
 }
 
+function GCD(a,b)
+{   
+    x = Math.abs(a);
+	y = Math.abs(b);
+    if (y > 0) {
+		return GCD(y,x%y)
+	} else {
+		return x;
+	} 
+}
+	$("#my-btn").on("click", function()
+	{
+		var sl = $(this).closest(".slider");
+		var h_wall = parseInt($(sl).find('[name="h-wall"]').val());
+		var w_wall = parseInt($(sl).find('[name="w-wall"]').val());
+		var l_reel = parseInt($(sl).find('[name="l-reel"]').val());
+		var w_reel = parseInt($(sl).find('[name="w-reel"]').val());
+		if (w_wall > w_reel)
+		{
+			var n_bar = Math.ceil(w_wall/w_reel);
+		} else {
+			var n_bar = 1;
+		}
+		console.log(n_bar);
+		$(sl).find('[name="n-reel"]').val(Math.ceil(n_bar*h_wall/l_reel));
+	});
 
 
 // FUNCTIONS 		
@@ -125,7 +151,7 @@ function init() {
 	
 	// EVENTS
 	THREEx.WindowResize(renderer, camera);
-	THREEx.FullScreen.bindKey({ charCode : 'm'.charCodeAt(0) });
+	//THREEx.FullScreen.bindKey({ charCode : 'm'.charCodeAt(0) });
 	// CONTROLS
 	controls = new THREE.OrbitControls( camera, renderer.domElement );
 	

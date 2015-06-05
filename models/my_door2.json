@@ -28,7 +28,7 @@
         "DbgIndex": 0,
         "colorEmissive": [0,0,0],
         "colorSpecular": [0.5,0.5,0.5],
-        "colorDiffuse": [0.8,0.8,0.8]
+        "colorDiffuse": [0.373761,0.04419,0.02801]
     },{
         "DbgName": "Material.014",
         "mapDiffuseWrap": ["RepeatWrapping","RepeatWrapping"],

@@ -48,7 +48,6 @@ img {
    border-bottom-style: none;
 }
  /*стили для слайдера*/
-
 	.slider {
 		
 		width: 294px;
@@ -97,6 +96,18 @@ img {
 		width: 98px;
 		border: none;
 	}
+	.txtfld {
+		display: block;
+		
+	}
+	.my-label {
+		display: block;
+		float: left;
+		width: 168px;
+	}
+	#my-btn {
+		
+	}
 </style>
 </head>
 <body>
@@ -125,6 +136,8 @@ img {
 				<li><img width="250" height="250" src="images/45016-20.jpg"></li>
 				<li><img width="250" height="250" src="images/45017-10.jpg"></li>
 				<li><img width="250" height="250" src="images/45017-20.jpg"></li>
+				<li><img width="250" height="250" src="images/wall_paper_1.jpg"></li>
+				<li><img width="250" height="250" src="images/wall_paper.jpg"></li>
 			</ul>
 			<input class="prevbtn" type="button" value="Назад">
 			<input class="nextbtn" type="button" value="Вперед">
@@ -140,6 +153,8 @@ img {
 				<li><img width="250" height="250" src="images/45016-20.jpg"></li>
 				<li><img width="250" height="250" src="images/45017-10.jpg"></li>
 				<li><img width="250" height="250" src="images/45017-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45002-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45003-20.jpg"></li>
 			</ul>
 			<input class="prevbtn" type="button" value="Назад">
 			<input class="nextbtn" type="button" value="Вперед">
@@ -155,6 +170,8 @@ img {
 				<li><img width="250" height="250" src="images/45016-20.jpg"></li>
 				<li><img width="250" height="250" src="images/45017-10.jpg"></li>
 				<li><img width="250" height="250" src="images/45017-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45002-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45003-20.jpg"></li>
 			</ul>
 			<input class="prevbtn" type="button" value="Назад">
 			<input class="nextbtn" type="button" value="Вперед">
@@ -170,6 +187,8 @@ img {
 				<li><img width="250" height="250" src="images/45016-20.jpg"></li>
 				<li><img width="250" height="250" src="images/45017-10.jpg"></li>
 				<li><img width="250" height="250" src="images/45017-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45002-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45003-20.jpg"></li>
 			</ul>
 			<input class="prevbtn" type="button" value="Назад">
 			<input class="nextbtn" type="button" value="Вперед">
@@ -185,10 +204,27 @@ img {
 				<li><img width="250" height="250" src="images/45016-20.jpg"></li>
 				<li><img width="250" height="250" src="images/45017-10.jpg"></li>
 				<li><img width="250" height="250" src="images/45017-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45002-20.jpg"></li>
+				<li><img width="250" height="250" src="images/45003-20.jpg"></li>
 			</ul>
 			<input class="prevbtn" type="button" value="Назад">
 			<input class="nextbtn" type="button" value="Вперед">
 			<input class="okbtn" type="button" value="Принять">
+		</div>
+	</li>
+	<li><div class="punct">Расчет стоимости обоев</div>
+		<div class="slider">
+			<hr>
+			<div><div class="my-label">Высота стены (м)</div><textarea name="h-wall" class="txtfld"  cols="13" rows="1" maxlength="10"></textarea></div>
+			<div><div class="my-label">Ширина стены (м)</div><textarea name="w-wall" class="txtfld"  cols="13" rows="1" maxlength="10"></textarea></div>
+			<hr>
+			<div><div class="my-label">Длина рулона (м)</div><textarea name="l-reel" class="txtfld" cols="13" rows="1" maxlength="10"></textarea></div>
+			<div><div class="my-label">Ширина рулона (м)</div><textarea name="w-reel" class="txtfld" cols="13" rows="1" maxlength="10"></textarea></div>
+			<hr>
+			<div>Вычисляется количество рулонов необходимых для оклейки стены:</div><input id="my-btn" type="button" value="Вычислить">
+			<div><div class="my-label">Количество рулонов (шт)</div><textarea class="txtfld" name="n-reel" cols="13" rows="1" maxlength="10"></textarea></div>
+			<div><div class="my-label">Общая стоимость (м)</div><textarea class="txtfld" name="comment" cols="13" rows="1" maxlength="10"></textarea></div>
+			<hr>
 		</div>
 	</li>
 </ul>
