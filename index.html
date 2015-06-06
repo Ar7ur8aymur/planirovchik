@@ -103,10 +103,11 @@ img {
 	.my-label {
 		display: block;
 		float: left;
-		width: 168px;
+		width: 175px;
 	}
 	#my-btn {
-		
+		display: block;
+		float: right;
 	}
 </style>
 </head>
@@ -221,9 +222,12 @@ img {
 			<div><div class="my-label">Длина рулона (м)</div><textarea name="l-reel" class="txtfld" cols="13" rows="1" maxlength="10"></textarea></div>
 			<div><div class="my-label">Ширина рулона (м)</div><textarea name="w-reel" class="txtfld" cols="13" rows="1" maxlength="10"></textarea></div>
 			<hr>
-			<div>Вычисляется количество рулонов необходимых для оклейки стены:</div><input id="my-btn" type="button" value="Вычислить">
+			<div><div class="my-label">Стоимость рулона (руб)</div><textarea name="d-reel" class="txtfld" cols="13" rows="1" maxlength="10"></textarea></div>
+			<br><input id="my-btn" type="button" value="Вычислить"><div style="clear: both"></div>
+			<hr>
+			<div>Результат вычисления:</div><br>
 			<div><div class="my-label">Количество рулонов (шт)</div><textarea class="txtfld" name="n-reel" cols="13" rows="1" maxlength="10"></textarea></div>
-			<div><div class="my-label">Общая стоимость (м)</div><textarea class="txtfld" name="comment" cols="13" rows="1" maxlength="10"></textarea></div>
+			<div><div class="my-label">Общая стоимость (руб)</div><textarea class="txtfld" name="sum-reel" cols="13" rows="1" maxlength="10"></textarea></div>
 			<hr>
 		</div>
 	</li>

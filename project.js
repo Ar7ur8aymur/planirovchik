@@ -100,31 +100,24 @@ function get_index_by_room(room) {
 	//
 }
 
-function GCD(a,b)
-{   
-    x = Math.abs(a);
-	y = Math.abs(b);
-    if (y > 0) {
-		return GCD(y,x%y)
-	} else {
-		return x;
-	} 
-}
 	$("#my-btn").on("click", function()
 	{
 		var sl = $(this).closest(".slider");
-		var h_wall = parseInt($(sl).find('[name="h-wall"]').val());
-		var w_wall = parseInt($(sl).find('[name="w-wall"]').val());
-		var l_reel = parseInt($(sl).find('[name="l-reel"]').val());
-		var w_reel = parseInt($(sl).find('[name="w-reel"]').val());
+		var h_wall = parseFloat($(sl).find('[name="h-wall"]').val());
+		var w_wall = parseFloat($(sl).find('[name="w-wall"]').val());
+		var l_reel = parseFloat($(sl).find('[name="l-reel"]').val());
+		var w_reel = parseFloat($(sl).find('[name="w-reel"]').val());
+		var d_reel = parseFloat($(sl).find('[name="d-reel"]').val());
+		console.log(d_reel);
 		if (w_wall > w_reel)
 		{
 			var n_bar = Math.ceil(w_wall/w_reel);
 		} else {
 			var n_bar = 1;
 		}
-		console.log(n_bar);
-		$(sl).find('[name="n-reel"]').val(Math.ceil(n_bar*h_wall/l_reel));
+		var n_reel = Math.ceil(n_bar*h_wall/l_reel);
+		$(sl).find('[name="n-reel"]').val(n_reel);
+		$(sl).find('[name="sum-reel"]').val(n_reel*d_reel);
 	});
 
 
