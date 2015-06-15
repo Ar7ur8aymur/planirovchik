@@ -81,19 +81,26 @@ img {
 	
 	.nextbtn {
 		display: block;
-		width: 98px;
+		width: 73px;
 		float: left;
 		border: none;
 	}
 	.prevbtn {
 		display: block;
-		width: 98px;
+		width: 73px;
 		float: left;
 		border: none;
 	}
 	.okbtn {
 		display: block;
-		width: 98px;
+		width: 73px;
+		float: left;
+		border: none;
+	}
+	.propbtn {
+		display: block;
+		width: 75px;
+		
 		border: none;
 	}
 	.txtfld {
@@ -109,6 +116,35 @@ img {
 		display: block;
 		float: right;
 	}
+	
+	.exmenu {
+    	/*display:inline-block;   
+    	position:relative;*/
+		display:inline-block;
+    	position:absolute;
+    	top:0px;   
+    	left:0px;
+     	width: 300px;
+		 background-color:rgba(0,0,0,.3);
+	}
+	
+	.exmenu span {
+    	
+    	/* Оформление текста */
+    	color:#FFF;
+    	font-family:Arial, Helvetica, sans-serif;
+    	font-size:11pt; 
+     
+    	/* Фон */
+    	
+    	padding:2px;
+	}
+	.exmenu input {
+		background-color:rgba(255,255,255,.3);
+		
+	}
+	input[type="text"]:focus { outline: none; }
+	input[type='text']{ border: none; }
 </style>
 </head>
 <body>
@@ -124,38 +160,93 @@ img {
 <script src="THREEx.WindowResize.js"></script>
 <!-- ------------------------------------------------------------ -->
 
-<script src="TrackballControls.js"></script>
-
 <div id="ThreeJS"></div>
 <ul id="menu">
 	<li><div class="punct">Прихожая</div>
 		<div class="slider">
+			<div class="exmenu">
+				<span class="my-label">Стоимость рулона (руб):</span>
+				<input name="sd-reel" type="text" size="11"> 
+			</div>
 			<ul id="hallway">
-				<li><img width="250" height="250" src="images/45010-20.jpg"></li>
-				<li><img width="250" height="250" src="images/45010-10.jpg"></li>
-				<li><img width="250" height="250" src="images/45013-20.jpg"></li>
-				<li><img width="250" height="250" src="images/45016-20.jpg"></li>
-				<li><img width="250" height="250" src="images/45017-10.jpg"></li>
-				<li><img width="250" height="250" src="images/45017-20.jpg"></li>
-				<li><img width="250" height="250" src="images/wall_paper_1.jpg"></li>
-				<li><img width="250" height="250" src="images/wall_paper.jpg"></li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45010-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="920">
+					<img width="250" height="250" src="images/45010-10.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="890">
+					<img width="250" height="250" src="images/45013-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="910">
+					<img width="250" height="250" src="images/45016-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="905">
+					<img width="250" height="250" src="images/45017-10.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="950">
+					<img width="250" height="250" src="images/45017-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="800">
+					<img width="250" height="250" src="images/wall_paper_1.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="780">
+					<img width="250" height="250" src="images/wall_paper.jpg">
+				</li>
 			</ul>
 			<input class="prevbtn" type="button" value="Назад">
 			<input class="nextbtn" type="button" value="Вперед">
 			<input class="okbtn" type="button" value="Принять">
+			<input class="propbtn" type="button" value="Свойства">
 		</div>
 	</li>
 	<li><div class="punct">Гостиная</div>
 		<div class="slider">
+			<div class="exmenu">
+				<span class="my-label">Стоимость рулона (руб):</span>
+				<input name="sd-reel" type="text" size="11">
+			</div>
 			<ul id="living-room">
-				<li><img width="250" height="250" src="images/45010-20.jpg"></li>
-				<li><img width="250" height="250" src="images/45010-10.jpg"></li>
-				<li><img width="250" height="250" src="images/45013-20.jpg"></li>
-				<li><img width="250" height="250" src="images/45016-20.jpg"></li>
-				<li><img width="250" height="250" src="images/45017-10.jpg"></li>
-				<li><img width="250" height="250" src="images/45017-20.jpg"></li>
-				<li><img width="250" height="250" src="images/45002-20.jpg"></li>
-				<li><img width="250" height="250" src="images/45003-20.jpg"></li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45010-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45010-10.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45013-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45016-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45017-10.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45017-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45002-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45003-20.jpg">
+				</li>
 			</ul>
 			<input class="prevbtn" type="button" value="Назад">
 			<input class="nextbtn" type="button" value="Вперед">
@@ -164,15 +255,43 @@ img {
 	</li>
 	<li><div class="punct">Кухня</div>
 		<div class="slider">
+			<div class="exmenu">
+				<span class="my-label">Стоимость рулона (руб):</span>
+				<input name="sd-reel" type="text" size="11">
+			</div>
 			<ul id="kitchen">
-				<li><img width="250" height="250" src="images/45010-20.jpg"></li>
-				<li><img width="250" height="250" src="images/45010-10.jpg"></li>
-				<li><img width="250" height="250" src="images/45013-20.jpg"></li>
-				<li><img width="250" height="250" src="images/45016-20.jpg"></li>
-				<li><img width="250" height="250" src="images/45017-10.jpg"></li>
-				<li><img width="250" height="250" src="images/45017-20.jpg"></li>
-				<li><img width="250" height="250" src="images/45002-20.jpg"></li>
-				<li><img width="250" height="250" src="images/45003-20.jpg"></li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45010-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45010-10.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45013-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45016-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45017-10.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45017-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45002-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45003-20.jpg">
+				</li>
 			</ul>
 			<input class="prevbtn" type="button" value="Назад">
 			<input class="nextbtn" type="button" value="Вперед">
@@ -181,15 +300,43 @@ img {
 	</li>
 	<li><div class="punct">Спальня 1</div>
 		<div class="slider">
+			<div class="exmenu">
+				<span class="my-label">Стоимость рулона (руб):</span>
+				<input name="sd-reel" type="text" size="11">
+			</div>
 			<ul id="bedroom-1">
-				<li><img width="250" height="250" src="images/45010-20.jpg"></li>
-				<li><img width="250" height="250" src="images/45010-10.jpg"></li>
-				<li><img width="250" height="250" src="images/45013-20.jpg"></li>
-				<li><img width="250" height="250" src="images/45016-20.jpg"></li>
-				<li><img width="250" height="250" src="images/45017-10.jpg"></li>
-				<li><img width="250" height="250" src="images/45017-20.jpg"></li>
-				<li><img width="250" height="250" src="images/45002-20.jpg"></li>
-				<li><img width="250" height="250" src="images/45003-20.jpg"></li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45010-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45010-10.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45013-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45016-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45017-10.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45017-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45002-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45003-20.jpg">
+				</li>
 			</ul>
 			<input class="prevbtn" type="button" value="Назад">
 			<input class="nextbtn" type="button" value="Вперед">
@@ -198,39 +345,50 @@ img {
 	</li>
 	<li><div class="punct">Спальня 2</div>
 		<div class="slider">
+			<div class="exmenu">
+				<span class="my-label">Стоимость рулона (руб):</span>
+				<input name="sd-reel" type="text" size="11">
+			</div>
 			<ul id="bedroom-2">
-				<li><img width="250" height="250" src="images/45010-20.jpg"></li>
-				<li><img width="250" height="250" src="images/45010-10.jpg"></li>
-				<li><img width="250" height="250" src="images/45013-20.jpg"></li>
-				<li><img width="250" height="250" src="images/45016-20.jpg"></li>
-				<li><img width="250" height="250" src="images/45017-10.jpg"></li>
-				<li><img width="250" height="250" src="images/45017-20.jpg"></li>
-				<li><img width="250" height="250" src="images/45002-20.jpg"></li>
-				<li><img width="250" height="250" src="images/45003-20.jpg"></li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45010-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45010-10.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45013-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45016-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45017-10.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45017-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45002-20.jpg">
+				</li>
+				<li>
+					<input name="d-reel" type="hidden" value="900">
+					<img width="250" height="250" src="images/45003-20.jpg">
+				</li>
 			</ul>
 			<input class="prevbtn" type="button" value="Назад">
 			<input class="nextbtn" type="button" value="Вперед">
 			<input class="okbtn" type="button" value="Принять">
 		</div>
 	</li>
-	<li><div class="punct">Расчет стоимости обоев</div>
-		<div class="slider">
-			<hr>
-			<div><div class="my-label">Высота стены (м)</div><textarea name="h-wall" class="txtfld"  cols="13" rows="1" maxlength="10"></textarea></div>
-			<div><div class="my-label">Ширина стены (м)</div><textarea name="w-wall" class="txtfld"  cols="13" rows="1" maxlength="10"></textarea></div>
-			<hr>
-			<div><div class="my-label">Длина рулона (м)</div><textarea name="l-reel" class="txtfld" cols="13" rows="1" maxlength="10"></textarea></div>
-			<div><div class="my-label">Ширина рулона (м)</div><textarea name="w-reel" class="txtfld" cols="13" rows="1" maxlength="10"></textarea></div>
-			<hr>
-			<div><div class="my-label">Стоимость рулона (руб)</div><textarea name="d-reel" class="txtfld" cols="13" rows="1" maxlength="10"></textarea></div>
-			<br><input id="my-btn" type="button" value="Вычислить"><div style="clear: both"></div>
-			<hr>
-			<div>Результат вычисления:</div><br>
-			<div><div class="my-label">Количество рулонов (шт)</div><textarea class="txtfld" name="n-reel" cols="13" rows="1" maxlength="10"></textarea></div>
-			<div><div class="my-label">Общая стоимость (руб)</div><textarea class="txtfld" name="sum-reel" cols="13" rows="1" maxlength="10"></textarea></div>
-			<hr>
-		</div>
-	</li>
+	
 </ul>
 	
 <script src="project.js"></script>

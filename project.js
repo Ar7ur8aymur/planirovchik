@@ -15,6 +15,7 @@ animate();
 		$(".slider").each(function()
 		{
 			$(this).find("li").first().addClass("on");
+			$(this).children(".exmenu").children('[name="sd-reel"]').val($(this).find("li").first().children('[name="d-reel"]').val());
 		});
 	});
 
@@ -33,7 +34,7 @@ animate();
 			index += size;
 		} 
 		$(li_array).eq(index).addClass("on");
-		
+		$(sl).children(".exmenu").children('[name="sd-reel"]').val($(li_array).eq(index).children('[name="d-reel"]').val());
 		$(ul).animate({marginLeft: "-"+$(li_array).eq(index).width()*index}, 500);
 		
 	});
@@ -53,7 +54,7 @@ animate();
 			index -= size;
 		} 
 		$(li_array).eq(index).addClass("on");
-		
+		$(sl).children(".exmenu").children('[name="sd-reel"]').val($(li_array).eq(index).children('[name="d-reel"]').val());
 		$(ul).animate({marginLeft: "-"+$(li_array).eq(index).width()*index}, 500);
 	});
 	
