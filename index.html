@@ -60,17 +60,18 @@ img {
 		border-right: 1px solid darkgray;
 		background-color: lightgray;
 	}
+	
+	.sl-body {/*пустой класс*/}
 
-	.slider ul {
+	.slider .sl-body {
 		width: 9999px;
 	}
-	.slider ul li {
+	.slider .sl-body li {
 		list-style-type: none;
 		float: left;
 		width: 300px;
 		/*height: 250px;*/
 	}
-	
 	.punct {
 		width: 300px;
 		height: 30px;
@@ -96,45 +97,28 @@ img {
 		width: 98px;
 		border: none;
 	}
-	.txtfld {
-		display: block;
-		
-	}
-	.my-label {
-		display: block;
-		float: left;
-		width: 175px;
-	}
-	#my-btn {
-		display: block;
-		float: right;
-	}
-	
 	.exmenu {
-    	/*display:inline-block;   
-    	position:relative;*/
-		display:inline-block;
+		display:block;
     	position:absolute;
     	top:0px;   
     	left:0px;
      	width: 300px;
-		 background-color:rgba(0,0,0,.3);
+		background-color:rgba(0,0,0,.25);
 	}
 	
 	.exmenu span {
-    	
+		display: block;
+		float: left;
+		width: 175px;
     	/* Оформление текста */
     	color:#FFF;
     	font-family:Arial, Helvetica, sans-serif;
-    	font-size:11pt; 
-     
+    	font-size:10pt; 
     	/* Фон */
-    	
     	padding:2px;
 	}
 	.exmenu input {
-		background-color:rgba(255,255,255,.3);
-		
+		background-color:rgba(255,255,255,.25);
 	}
 	input[type="text"]:focus { outline: none; }
 	input[type='text']{ border: none; }
@@ -157,41 +141,61 @@ img {
 <ul id="menu">
 	<li><div class="punct">Прихожая</div>
 		<div class="slider">
-			<div class="exmenu">
-				<span class="my-label">Стоимость рулона (руб):</span>
-				<input name="sd-reel" type="text" size="11"> 
-			</div>
-			<ul id="hallway">
+			<ul class="exmenu">
+				<li><span>Стоимость рулона (руб):</span><input name="sd-reel" type="text" size="11"></li>
+				<li><span>Длина рулона (м):</span><input name="sl-reel" type="text" size="11"></li>
+				<li><span>Ширина рулона (м):</span><input name="sw-reel" type="text" size="11"></li>
+				<li><span>Высота стены (м):</span><input name="h-wall" type="text" size="11" value="2,5"></li>
+				<li><span>Периметр комнаты (м):</span><input name="p-room" type="text" size="11"  value="20,5"></li>
+				<li><span>Расчет: (нужно рулонов)</span><span name="n-reel" style="width: 100px"></span></li>
+			</ul>
+			<ul id="hallway" class="sl-body">
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45010-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="920">
+					<input name="l-reel" type="hidden" value="100,5">
+					<input name="w-reel" type="hidden" value="1,75">
 					<img width="250" height="250" src="images/45010-10.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="890">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45013-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="910">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45016-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="905">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45017-10.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="950">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45017-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="800">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/wall_paper_1.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="780">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/wall_paper.jpg">
 				</li>
 			</ul>
@@ -202,41 +206,61 @@ img {
 	</li>
 	<li><div class="punct">Гостиная</div>
 		<div class="slider">
-			<div class="exmenu">
-				<span class="my-label">Стоимость рулона (руб):</span>
-				<input name="sd-reel" type="text" size="11">
-			</div>
-			<ul id="living-room">
+			<ul class="exmenu">
+				<li><span>Стоимость рулона (руб):</span><input name="sd-reel" type="text" size="11"></li>
+				<li><span>Длина рулона (м):</span><input name="sl-reel" type="text" size="11"></li>
+				<li><span>Ширина рулона (м):</span><input name="sw-reel" type="text" size="11"></li>
+				<li><span>Высота стены (м):</span><input name="h-wall" type="text" size="11" value="2,5"></li>
+				<li><span>Периметр комнаты (м):</span><input name="p-room" type="text" size="11"  value="20,5"></li>
+				<li><span>Расчет: (нужно рулонов)</span><span name="n-reel" style="width: 100px"></span></li>
+			</ul>
+			<ul id="living-room" class="sl-body">
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45010-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45010-10.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45013-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="sl-reel" type="hidden" value="10">
+					<input name="sw-reel" type="hidden" value="1,5"> 
 					<img width="250" height="250" src="images/45016-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45017-10.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45017-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45002-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45003-20.jpg">
 				</li>
 			</ul>
@@ -247,41 +271,61 @@ img {
 	</li>
 	<li><div class="punct">Кухня</div>
 		<div class="slider">
-			<div class="exmenu">
-				<span class="my-label">Стоимость рулона (руб):</span>
-				<input name="sd-reel" type="text" size="11">
-			</div>
-			<ul id="kitchen">
+			<ul class="exmenu">
+				<li><span>Стоимость рулона (руб):</span><input name="sd-reel" type="text" size="11"></li>
+				<li><span>Длина рулона (м):</span><input name="sl-reel" type="text" size="11"></li>
+				<li><span>Ширина рулона (м):</span><input name="sw-reel" type="text" size="11"></li>
+				<li><span>Высота стены (м):</span><input name="h-wall" type="text" size="11" value="2,5"></li>
+				<li><span>Периметр комнаты (м):</span><input name="p-room" type="text" size="11"  value="20,5"></li>
+				<li><span>Расчет: (нужно рулонов)</span><span name="n-reel" style="width: 100px"></span></li>
+			</ul>
+			<ul id="kitchen" class="sl-body">
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5"> 
 					<img width="250" height="250" src="images/45010-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5"> 
 					<img width="250" height="250" src="images/45010-10.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5"> 
 					<img width="250" height="250" src="images/45013-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45016-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45017-10.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45017-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5"> 
 					<img width="250" height="250" src="images/45002-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45003-20.jpg">
 				</li>
 			</ul>
@@ -292,41 +336,61 @@ img {
 	</li>
 	<li><div class="punct">Спальня 1</div>
 		<div class="slider">
-			<div class="exmenu">
-				<span class="my-label">Стоимость рулона (руб):</span>
-				<input name="sd-reel" type="text" size="11">
-			</div>
-			<ul id="bedroom-1">
+			<ul class="exmenu">
+				<li><span>Стоимость рулона (руб):</span><input name="sd-reel" type="text" size="11"></li>
+				<li><span>Длина рулона (м):</span><input name="sl-reel" type="text" size="11"></li>
+				<li><span>Ширина рулона (м):</span><input name="sw-reel" type="text" size="11"></li>
+				<li><span>Высота стены (м):</span><input name="h-wall" type="text" size="11" value="2,5"></li>
+				<li><span>Периметр комнаты (м):</span><input name="p-room" type="text" size="11"  value="20,5"></li>
+				<li><span>Расчет: (нужно рулонов)</span><span name="n-reel" style="width: 100px"></span></li>
+			</ul>
+			<ul id="bedroom-1" class="sl-body">
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45010-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45010-10.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45013-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45016-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45017-10.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45017-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45002-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45003-20.jpg">
 				</li>
 			</ul>
@@ -337,41 +401,61 @@ img {
 	</li>
 	<li><div class="punct">Спальня 2</div>
 		<div class="slider">
-			<div class="exmenu">
-				<span class="my-label">Стоимость рулона (руб):</span>
-				<input name="sd-reel" type="text" size="11">
-			</div>
-			<ul id="bedroom-2">
+			<ul class="exmenu">
+				<li><span>Стоимость рулона (руб):</span><input name="sd-reel" type="text" size="11"></li>
+				<li><span>Длина рулона (м):</span><input name="sl-reel" type="text" size="11"></li>
+				<li><span>Ширина рулона (м):</span><input name="sw-reel" type="text" size="11"></li>
+				<li><span>Высота стены (м):</span><input name="h-wall" type="text" size="11" value="2,5"></li>
+				<li><span>Периметр комнаты (м):</span><input name="p-room" type="text" size="11"  value="20,5"></li>
+				<li><span>Расчет (нужно рулонов):</span><span name="n-reel" style="width: 100px"></span></li>
+			</ul>
+			<ul id="bedroom-2" class="sl-body">
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5"> 
 					<img width="250" height="250" src="images/45010-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45010-10.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45013-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45016-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45017-10.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45017-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45002-20.jpg">
 				</li>
 				<li>
 					<input name="d-reel" type="hidden" value="900">
+					<input name="l-reel" type="hidden" value="10">
+					<input name="w-reel" type="hidden" value="1,5">
 					<img width="250" height="250" src="images/45003-20.jpg">
 				</li>
 			</ul>

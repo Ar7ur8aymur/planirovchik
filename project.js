@@ -14,15 +14,42 @@ animate();
 	{
 		$(".slider").each(function()
 		{
-			$(this).find("li").first().addClass("on");
-			$(this).children(".exmenu").children('[name="sd-reel"]').val($(this).find("li").first().children('[name="d-reel"]').val());
+			var first_li = $(this).children(".sl-body").children("li").first();
+			$(first_li).addClass("on");
+			$(this).children(".exmenu").find('[name="sd-reel"]').val($(first_li).children('[name="d-reel"]').val());
+			$(this).children(".exmenu").find('[name="sl-reel"]').val($(first_li).children('[name="l-reel"]').val());
+			$(this).children(".exmenu").find('[name="sw-reel"]').val($(first_li).children('[name="w-reel"]').val());
 		});
+		$(".exmenu").each(function()
+		{
+			$(this).on("input","input:text", function()
+			{
+				var menu = $(this).closest(".exmenu");;
+				var h_wall = parseFloat($(menu).find('[name="h-wall"]').val());
+				var p_room = parseFloat($(menu).find('[name="p-room"]').val());
+				var l_reel = parseFloat($(menu).find('[name="sl-reel"]').val());
+				var w_reel = parseFloat($(menu).find('[name="sw-reel"]').val());
+				var d_reel = parseFloat($(menu).find('[name="sd-reel"]').val());
+				
+				if (p_room > w_reel)
+				{
+					var n_bar = Math.ceil(p_room/w_reel);
+				} else {
+					var n_bar = 1;
+				}
+				var n_reel = Math.ceil(n_bar*h_wall/l_reel);
+				console.log(h_wall);
+				$(menu).find('[name="n-reel"]').html(n_reel);
+			});
+		});
+		//$(this).on("input","input:text", function()
+		$(this).find("input:text").trigger('input');
 	});
 
 	$("#menu").on("click", ".prevbtn", function()
 	{
 		var sl = $(this).closest(".slider");
-		var ul = $(sl).find("ul");
+		var ul = $(sl).find(".sl-body");
 		var li_array = $(ul).children("li");
 		var size = li_array.size();
 		var index = $(sl).find("li.on").index();
@@ -34,15 +61,17 @@ animate();
 			index += size;
 		} 
 		$(li_array).eq(index).addClass("on");
-		$(sl).children(".exmenu").children('[name="sd-reel"]').val($(li_array).eq(index).children('[name="d-reel"]').val());
+		$(sl).children(".exmenu").find('[name="sd-reel"]').val($(li_array).eq(index).children('[name="d-reel"]').val());
+		$(sl).children(".exmenu").find('[name="sl-reel"]').val($(li_array).eq(index).children('[name="l-reel"]').val());
+		$(sl).children(".exmenu").find('[name="sw-reel"]').val($(li_array).eq(index).children('[name="w-reel"]').val());
 		$(ul).animate({marginLeft: "-"+$(li_array).eq(index).width()*index}, 500);
-		
+		$(sl).children(".exmenu").find("input:text").trigger('input');
 	});
 	
 	$("#menu").on("click", ".nextbtn", function()
 	{
 		var sl = $(this).closest(".slider");
-		var ul = $(sl).find("ul");
+		var ul = $(sl).find(".sl-body");
 		var li_array = $(ul).children("li");
 		var size = li_array.size();
 		var index = $(sl).find("li.on").index();
@@ -54,14 +83,17 @@ animate();
 			index -= size;
 		} 
 		$(li_array).eq(index).addClass("on");
-		$(sl).children(".exmenu").children('[name="sd-reel"]').val($(li_array).eq(index).children('[name="d-reel"]').val());
+		$(sl).children(".exmenu").find('[name="sd-reel"]').val($(li_array).eq(index).children('[name="d-reel"]').val());
+		$(sl).children(".exmenu").find('[name="sl-reel"]').val($(li_array).eq(index).children('[name="l-reel"]').val());
+		$(sl).children(".exmenu").find('[name="sw-reel"]').val($(li_array).eq(index).children('[name="w-reel"]').val());
 		$(ul).animate({marginLeft: "-"+$(li_array).eq(index).width()*index}, 500);
+		$(sl).children(".exmenu").find("input:text").trigger('input');
 	});
 	
 	$("#menu").on("click", ".okbtn", function()
 	{
 		var sl = $(this).closest(".slider");
-		var ul = $(sl).find("ul");
+		var ul = $(sl).find(".sl-body");
 		var my_img = $(sl).find("li.on").children("img").attr("src");
 		//
 		var Texture = new THREE.ImageUtils.loadTexture( my_img );
@@ -100,27 +132,6 @@ function get_index_by_room(room) {
 	}
 	//
 }
-
-	$("#my-btn").on("click", function()
-	{
-		var sl = $(this).closest(".slider");
-		var h_wall = parseFloat($(sl).find('[name="h-wall"]').val());
-		var w_wall = parseFloat($(sl).find('[name="w-wall"]').val());
-		var l_reel = parseFloat($(sl).find('[name="l-reel"]').val());
-		var w_reel = parseFloat($(sl).find('[name="w-reel"]').val());
-		var d_reel = parseFloat($(sl).find('[name="d-reel"]').val());
-		console.log(d_reel);
-		if (w_wall > w_reel)
-		{
-			var n_bar = Math.ceil(w_wall/w_reel);
-		} else {
-			var n_bar = 1;
-		}
-		var n_reel = Math.ceil(n_bar*h_wall/l_reel);
-		$(sl).find('[name="n-reel"]').val(n_reel);
-		$(sl).find('[name="sum-reel"]').val(n_reel*d_reel);
-	});
-
 
 // FUNCTIONS 		
 function init() {
