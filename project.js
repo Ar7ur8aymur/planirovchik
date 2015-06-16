@@ -39,7 +39,7 @@ animate();
 				}
 				var n_reel = Math.ceil(n_bar*h_wall/l_reel);
 				console.log(h_wall);
-				$(menu).find('[name="n-reel"]').html(n_reel);
+				$(menu).find('[name="n-reel"]').html(n_reel+" ("+n_reel*d_reel+" руб)");
 			});
 		});
 		//$(this).on("input","input:text", function()
